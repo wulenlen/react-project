@@ -60,6 +60,15 @@ import {List} from './components/List'
 //     document.getElementById('app')
 // )
 
+import services from './service'
+
+services.getCaseInfo({
+    id:133,
+    name: 'dshf'
+}).then(res => {
+    console.log(res, 333333)
+})
+
 
 ReactDOM.render(
     <List>111</List>,

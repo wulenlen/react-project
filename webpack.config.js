@@ -3,7 +3,7 @@ const path = require('path'),
       {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     entry: './src/index.js',
     output: {
         path: path.resolve('./dist'),
@@ -36,5 +36,14 @@ module.exports = {
         alias: {
             '@': path.resolve(__dirname, './src')
         }
-    }
+    },
+    devServer: {
+        proxy: {
+          '/api': {
+            target: 'http://192.168.2.8:10020/mock/11',
+            // pathRewrite: { '^/api': '' },
+            changeOrigin: true,
+          },
+        },
+    },
 }
